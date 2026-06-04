@@ -304,6 +304,7 @@
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
     <button class="filter-btn" onclick="filterCards('assembly', this)">Assemblies</button>
+    <button class="filter-btn" onclick="filterCards('component', this)">Components</button>
     <button class="filter-btn" onclick="filterCards('container', this)">Containers</button>
     <button class="filter-btn" onclick="filterCards('fixture', this)">Fixtures</button>
   </div>
@@ -325,7 +326,7 @@
       </div>
     </div>
 
-    <div class="card" data-category="container" onclick="openLightbox(this)">
+    <div class="card" data-category="assembly" data-category="container" aonclick="openLightbox(this)">
       <div class="card-img">
         <img src="Autoclavable_Saline_Container.png" alt="Autoclavable Saline Container"/>
       </div>
@@ -341,7 +342,7 @@
       </div>
     </div>
 
-    <div class="card" data-category="assembly" onclick="openLightbox(this)">
+    <div class="card" data-category="component" onclick="openLightbox(this)">
       <div class="card-img">
         <img src="PD_3_nozzle_Cap.png" alt="PD 3-Nozzle Cap"/>
       </div>
