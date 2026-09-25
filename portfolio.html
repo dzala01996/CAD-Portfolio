@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3D Modeling Portfolio</title>
+  <title>David Zalazar | Mechanical Design Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -286,141 +286,269 @@
       header { flex-direction: column; align-items: flex-start; }
       .header-right { text-align: left; }
     }
+  
+    /* Gallery additions; keep the original typography and colors. */
+    [hidden] { display: none !important; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { border: 0; color: inherit; font: inherit; text-align: left; width: 100%; }
+    .card-img { background: white; }
+    .card-img img { object-fit: contain; padding: 16px; }
+    .card-body { display: block; }
+    .card-body h2 { font: 400 1.2rem 'DM Serif Display', serif; }
+    .view-project { display: block; margin-top: 18px; color: var(--accent); font-size: .85rem; font-weight: 500; }
+    .contact a { color: inherit; text-decoration: none; }
+    dialog { border: 0; border-radius: 8px; padding: 0; margin: auto; width: min(1000px, calc(100% - 32px)); max-height: calc(100dvh - 32px); background: var(--surface); color: var(--text-primary); }
+    dialog::backdrop { background: rgba(26,25,22,.88); backdrop-filter: blur(5px); }
+    .gallery-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 24px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: white; z-index: 2; }
+    .gallery-header h2 { font: 400 1.4rem 'DM Serif Display', serif; }
+    .gallery-close { border: 1px solid var(--border); border-radius: 50%; width: 44px; height: 44px; flex: 0 0 44px; background: white; font-size: 1.5rem; cursor: pointer; }
+    .gallery-stage { background: #fff; }
+    .gallery-stage img { display: block; width: 100%; height: clamp(220px, 47vh, 520px); object-fit: contain; padding: 20px; }
+    .gallery-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 24px; border-top: 1px solid var(--border); }
+    .gallery-controls button { font: inherit; font-size: .85rem; min-height: 44px; padding: 8px 14px; border: 1px solid var(--border); border-radius: 5px; background: white; color: var(--accent); cursor: pointer; }
+    .gallery-controls button:disabled { opacity: .35; cursor: default; }
+    #gallery-counter { font-size: .8rem; color: var(--text-secondary); }
+    .gallery-caption { padding: 0 24px 16px; font-size: .9rem; line-height: 1.6; color: var(--text-secondary); }
+    .gallery-thumbs { display: flex; overflow-x: auto; gap: 10px; padding: 0 24px 20px; }
+    .gallery-thumbs button { flex: 0 0 90px; border: 2px solid var(--border); background: white; border-radius: 4px; padding: 3px; cursor: pointer; }
+    .gallery-thumbs button[aria-current="true"] { border-color: var(--accent); }
+    .gallery-thumbs img { width: 80px; height: 60px; object-fit: contain; display: block; }
+    .gallery-details { padding: 22px 24px 28px; border-top: 1px solid var(--border); }
+    .gallery-details p { font-size: .92rem; line-height: 1.65; max-width: 780px; }
+    .gallery-details .contribution { margin-top: 12px; color: var(--text-secondary); }
+    .image-error { padding: 60px 24px; text-align: center; color: var(--text-secondary); }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } header { padding-top: 36px; padding-bottom: 30px; } .gallery-header { padding: 12px 16px; } .gallery-header h2 { font-size: 1.15rem; } .gallery-controls, .gallery-details { padding-left: 16px; padding-right: 16px; } .gallery-stage img { padding: 12px; height: 36vh; min-height: 200px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
   </style>
 </head>
 <body>
-
   <header>
     <div class="header-left">
-      <h1>3D Modeling<br/><em>Work Samples</em></h1>
-      <p>Medical device components and assemblies modeled in SolidWorks. Parametric design, multi-part assemblies, and material-intent modeling for prototyping and manufacturing.</p>
+      <h1>Mechanical Design<br/><em>Work Samples</em></h1>
+      <p>Medical device components and assemblies designed in SolidWorks, with selected work spanning CAD, prototyping, and fabricated parts.</p>
     </div>
     <div class="header-right">
       <div class="name">David Zalazar</div>
-      <div class="contact">zalazar.david815@gmail.com</div>
+      <div class="contact"><a href="mailto:zalazar.david815@gmail.com">zalazar.david815@gmail.com</a></div>
     </div>
   </header>
+  <main>
+    <nav class="filter-bar" aria-label="Filter projects">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All projects</button>
+      <button class="filter-btn" data-filter="assembly" aria-pressed="false">Assemblies</button>
+      <button class="filter-btn" data-filter="component" aria-pressed="false">Components</button>
+      <button class="filter-btn" data-filter="container" aria-pressed="false">Containers</button>
+    </nav>
+    <div class="grid" id="grid"></div>
+    <noscript><p style="padding:24px">Please enable JavaScript to view the project galleries.</p></noscript>
+  </main>
+  <footer><p><span class="dot"></span>David Zalazar — SolidWorks Work Samples</p></footer>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
-    <button class="filter-btn" onclick="filterCards('assembly', this)">Assemblies</button>
-    <button class="filter-btn" onclick="filterCards('component', this)">Components</button>
-    <button class="filter-btn" onclick="filterCards('container', this)">Containers</button>
-    <button class="filter-btn" onclick="filterCards('fixture', this)">Fixtures</button>
-  </div>
-
-  <div class="grid" id="grid">
-
-    <div class="card" data-category="assembly" onclick="openLightbox(this)">
-      <div class="card-img">
-        <img src="Secure-swap.png" alt="Secure-Swap ETT Holder"/>
-      </div>
-      <div class="card-body">
-        <h3>Secure-Swap ETT Holder</h3>
-        <p>Multi-component endotracheal tube management assembly featuring a locking rail mount, adjustable clamp mechanism, transparent cuff balloon, flexible tubing, and fabric strap — modeled with material-specific appearances throughout.</p>
-        <div class="card-meta">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">Assembly</span>
-          <span class="tag">Medical Device</span>
-        </div>
-      </div>
+  <dialog id="gallery" aria-labelledby="gallery-title">
+    <div class="gallery-header">
+      <h2 id="gallery-title"></h2>
+      <button class="gallery-close" type="button" aria-label="Close project gallery" autofocus>&times;</button>
     </div>
-
-    <div class="card" data-category="assembly container" onclick="openLightbox(this)">
-      <div class="card-img">
-        <img src="Autoclavable_Saline_Container.png" alt="Autoclavable Saline Container"/>
+    <figure>
+      <div class="gallery-stage"><img id="gallery-image" alt=""/><p id="image-error" class="image-error" hidden>Image unavailable. Please try another view.</p></div>
+      <div class="gallery-controls">
+        <button id="previous" type="button" aria-label="Previous image">&#8592; Previous</button>
+        <span id="gallery-counter" role="status" aria-live="polite"></span>
+        <button id="next" type="button" aria-label="Next image">Next &#8594;</button>
       </div>
-      <div class="card-body">
-        <h3>Autoclavable Saline Container</h3>
-        <p>Transparent-walled saline container with integrated volume markings, barbed outlet fitting, flanged lid with bolt pattern, and stepped base enclosure. Transparent body material reveals internal geometry and fluid outlet routing.</p>
-        <div class="card-meta">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">Assembly</span>
-          <span class="tag">Container</span>
-          <span class="tag">Medical Device</span>
-        </div>
-      </div>
+      <figcaption class="gallery-caption" id="gallery-caption"></figcaption>
+    </figure>
+    <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Select an image"></div>
+    <div class="gallery-details">
+      <p id="gallery-description"></p>
+      <p id="gallery-contribution" class="contribution"></p>
+      <div class="card-meta" id="gallery-tags"></div>
     </div>
-
-    <div class="card" data-category="component" onclick="openLightbox(this)">
-      <div class="card-img">
-        <img src="PD_3_nozzle_Cap.png" alt="3-Nozzle Cap"/>
-      </div>
-      <div class="card-body">
-        <h3>PD 3-Nozzle Cap Assembly</h3>
-        <p>Three-port manifold cap with swept elbow channels, barbed nozzle outlets at varied orientations, and a transparent cylindrical body showing internal thread and nozzle geometry. Designed for washing human lipoaspirate.</p>
-        <div class="card-meta">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">Fluid Routing</span>
-          <span class="tag">Medical Device</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-category="fixture" onclick="openLightbox(this)">
-      <div class="card-img">
-        <img src="Gooseneck_Holder.png" alt="Gooseneck Holder"/>
-      </div>
-      <div class="card-body">
-        <h3>Gooseneck Pole Holder</h3>
-        <p>Dual-cradle mounting bracket for gooseneck pole clamp with snap-retention clips at top and bottom. Contains hex bolt for fixed-position attachment.</p>
-        <div class="card-meta">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">Fixture</span>
-          <span class="tag">Hardware</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <footer>
-    <p><span class="dot"></span>3D Modeling Portfolio — SolidWorks Work Samples</p>
-  </footer>
-
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <div class="lightbox-inner">
-      <div class="lightbox-img" id="lb-img"></div>
-      <div class="lightbox-body">
-        <h2 id="lb-title"></h2>
-        <p id="lb-desc"></p>
-        <div class="card-meta" id="lb-tags"></div>
-      </div>
-    </div>
-  </div>
+  </dialog>
 
   <script>
-    function filterCards(category, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.card').forEach(card => {
-        card.style.display = (category === 'all' || card.dataset.category.includes(category)) ? '' : 'none';
+    /* ==============================================================
+       EDIT YOUR PROJECTS HERE
+       Keep this HTML and the images in the same GitHub Pages folder.
+       Each gallery item is { src: 'filename.png', alt: 'description',
+                              caption: 'Text shown beneath this image' }.
+       Optional images below are already configured. Upload files with
+       those EXACT names (case-sensitive), or change src to your filename.
+       Missing optional files are quietly skipped: visitors see only real images.
+       Existing images stay visible while you prepare the other views.
+       You may add, remove, or reorder images in any gallery array.
+       Update captions and contributions to describe your actual work.
+       ============================================================== */
+    const projects = [
+      {
+        id: 'ett', title: 'Secure-Swap ETT Holder', categories: ['assembly'],
+        thumbnail: 'Secure-swap.png',
+        summary: 'Multi-component endotracheal tube holder with a locking rail and adjustable clamp. The project progressed to injection molded parts.',
+        description: 'An endotracheal tube management assembly incorporating a rail mount, adjustable clamp, tubing, and strap. CAD views and fabricated parts document the assembly.',
+        contribution: 'My contribution: CAD part design. Injection mold tooling was designed by others.',
+        tags: ['SolidWorks', 'Assembly', 'Injection molding'],
+        gallery: [
+          {src: 'Secure-swap.png', alt: 'Secure-Swap ETT holder CAD assembly', caption: 'CAD assembly showing the rail, clamp, and tube arrangement.'},
+          {src: 'ETT_Molded_Parts.jpg', optional: true, alt: 'Injection molded ETT holder components', caption: 'Injection molded components from the ETT holder project. Mold tooling was designed by others.'},
+          {src: 'ETT_Prototype.jpg', optional: true, alt: 'Assembled ETT holder prototype', caption: 'Physical prototype showing the assembled components.'}
+        ]
+      },
+      {
+        id: 'cap', title: 'PD Three-Nozzle Cap', categories: ['assembly', 'component'],
+        thumbnail: 'PD_3_nozzle_Cap.png',
+        summary: 'Original cap design for lipoaspirate washing, with three fluid connections and internal routing. Integrated with a modified existing cylindrical body.',
+        description: 'A three-nozzle cap designed for a lipoaspirate washing device. The complete assembly provides context for the cap and its connection to the cylindrical body.',
+        contribution: 'My contribution: conceived and designed the cap. Modified an existing body design by rounding the spiral baffles and limiting them to the upper 60% of the interior.',
+        tags: ['SolidWorks', 'Fluid routing', 'Prototype'],
+        gallery: [
+          {src: 'PD_Full_Assembly.png', optional: true, alt: 'Complete cap and cylindrical body assembly', caption: 'Full device assembly. I designed the cap and modified the baffles in an existing cylindrical body design.'},
+          {src: 'PD_3_nozzle_Cap.png', alt: 'Three-nozzle cap CAD view', caption: 'Original cap design showing the fluid connections and routing geometry.'},
+          {src: 'PD_Cap_Section.png', optional: true, alt: 'Cap cross-section with selected dimensions', caption: 'Cap cross-section with selected dimensions showing the internal passages and interface geometry.'},
+          {src: 'PD_Cap_Prototype.jpg', optional: true, alt: 'Fabricated cap prototype', caption: 'Physical prototype of the cap design.'}
+        ]
+      },
+      {
+        id: 'saline', title: 'Saline Container Assembly', categories: ['assembly', 'container'],
+        thumbnail: 'Autoclavable_Saline_Container.png',
+        summary: 'Container assembly with volume markings, a barbed outlet, a flanged lid, and a supporting base.',
+        description: 'SolidWorks assembly showing the container, lid, outlet fitting, and base. The transparent CAD view exposes the internal geometry and outlet routing.',
+        contribution: '', // Add your specific design contribution and any verified testing here.
+        tags: ['SolidWorks', 'Assembly', 'Container'],
+        gallery: [
+          {src: 'Autoclavable_Saline_Container.png', alt: 'Saline container CAD assembly', caption: 'CAD assembly with a transparent body to reveal the internal geometry.'},
+          {src: 'Saline_Prototype.jpg', optional: true, alt: 'Saline container prototype', caption: 'Physical prototype of the saline container assembly.'}
+        ]
+      }
+    ];
+
+    const grid = document.getElementById('grid');
+    const dialog = document.getElementById('gallery');
+    const mainImage = document.getElementById('gallery-image');
+    const previous = document.getElementById('previous');
+    const next = document.getElementById('next');
+    const thumbStrip = document.getElementById('gallery-thumbs');
+    let slides = [], position = 0, requestId = 0, opener = null, previousOverflow = '';
+
+    function element(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+    function appendTags(container, tags) {
+      container.replaceChildren(...tags.map(tag => element('span', 'tag', tag)));
+    }
+    projects.forEach(project => {
+      const card = element('button', 'card');
+      card.type = 'button'; card.dataset.categories = project.categories.join(' ');
+      card.setAttribute('aria-label', 'View ' + project.title + ' gallery');
+      card.setAttribute('aria-haspopup', 'dialog');
+      const imageBox = element('div', 'card-img');
+      const image = element('img'); image.src = project.thumbnail; image.alt = project.title; image.loading = 'lazy';
+      imageBox.append(image);
+      const body = element('div', 'card-body');
+      body.append(element('h2', '', project.title), element('p', '', project.summary));
+      const tags = element('div', 'card-meta'); appendTags(tags, project.tags);
+      body.append(tags, element('span', 'view-project', 'Explore project →'));
+      card.append(imageBox, body); grid.append(card);
+      card.addEventListener('click', () => openGallery(project, card));
+    });
+    document.querySelectorAll('[data-filter]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter]').forEach(item => {
+          item.classList.toggle('active', item === button);
+          item.setAttribute('aria-pressed', String(item === button));
+        });
+        document.querySelectorAll('.card').forEach(card => {
+          card.hidden = button.dataset.filter !== 'all' && !card.dataset.categories.split(' ').includes(button.dataset.filter);
+        });
       });
+    });
+    const imageAvailability = new Map();
+    function canLoad(src) {
+      if (!imageAvailability.has(src)) imageAvailability.set(src, new Promise(resolve => {
+        const image = new Image();
+        const timeout = setTimeout(() => resolve(false), 6000);
+        image.onload = () => { clearTimeout(timeout); resolve(true); };
+        image.onerror = () => { clearTimeout(timeout); resolve(false); };
+        image.src = src;
+      }));
+      return imageAvailability.get(src);
     }
-
-    function openLightbox(card) {
-      const title = card.querySelector('h3').textContent;
-      const desc  = card.querySelector('p').textContent;
-      const tags  = card.querySelectorAll('.tag');
-      const img   = card.querySelector('img');
-
-      document.getElementById('lb-title').textContent = title;
-      document.getElementById('lb-desc').textContent  = desc;
-      document.getElementById('lb-img').innerHTML = `<img src="${img.src}" alt="${title}">`;
-      document.getElementById('lb-tags').innerHTML = [...tags].map(t => `<span class="tag">${t.textContent}</span>`).join('');
-      document.getElementById('lightbox').classList.add('open');
+    function buildThumbnails() {
+      thumbStrip.replaceChildren();
+      slides.forEach((slide, index) => {
+        const button = element('button'); button.type = 'button';
+        button.setAttribute('aria-label', 'View image ' + (index + 1) + ': ' + slide.alt);
+        const image = element('img'); image.src = slide.src; image.alt = '';
+        button.append(image); button.addEventListener('click', () => showSlide(index));
+        thumbStrip.append(button);
+      });
+      thumbStrip.hidden = slides.length < 2;
     }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
+    function showSlide(index) {
+      position = (index + slides.length) % slides.length;
+      const slide = slides[position];
+      mainImage.hidden = false; document.getElementById('image-error').hidden = true;
+      mainImage.alt = slide.alt; mainImage.src = slide.src;
+      document.getElementById('gallery-caption').textContent = slide.caption;
+      document.getElementById('gallery-counter').textContent = `${position + 1} / ${slides.length}`;
+      previous.disabled = next.disabled = slides.length < 2;
+      [...thumbStrip.children].forEach((button, i) => button.setAttribute('aria-current', String(i === position)));
     }
-
-    function closeLightboxOutside(e) {
-      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    mainImage.addEventListener('error', () => {
+      mainImage.hidden = true; document.getElementById('image-error').hidden = false;
+    });
+    async function openGallery(project, card) {
+      const thisRequest = ++requestId; opener = card;
+      document.getElementById('gallery-title').textContent = project.title;
+      document.getElementById('gallery-description').textContent = project.description;
+      const contribution = document.getElementById('gallery-contribution');
+      contribution.textContent = project.contribution; contribution.hidden = !project.contribution;
+      appendTags(document.getElementById('gallery-tags'), project.tags);
+      slides = project.gallery.filter(slide => !slide.optional);
+      buildThumbnails(); showSlide(0);
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden'; dialog.showModal(); dialog.scrollTop = 0;
+      // Load future photos/drawings in the background; no empty public placeholders.
+      const available = await Promise.all(project.gallery.map(async slide => !slide.optional || await canLoad(slide.src)));
+      if (!dialog.open || thisRequest !== requestId) return;
+      const selectedSrc = slides[position].src;
+      slides = project.gallery.filter((slide, index) => available[index]);
+      buildThumbnails(); showSlide(Math.max(0, slides.findIndex(slide => slide.src === selectedSrc)));
     }
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    function closeGallery() { dialog.close(); }
+    dialog.addEventListener('close', () => {
+      ++requestId; document.body.style.overflow = previousOverflow; opener?.focus();
+    });
+    dialog.querySelector('.gallery-close').addEventListener('click', closeGallery);
+    dialog.addEventListener('click', event => {
+      const box = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) closeGallery();
+    });
+    previous.addEventListener('click', () => showSlide(position - 1));
+    next.addEventListener('click', () => showSlide(position + 1));
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault(); showSlide(position + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    // Native dialog provides Escape-to-close and contains keyboard focus.
+    let touchStart = null;
+    mainImage.addEventListener('touchstart', event => {
+      touchStart = event.touches.length === 1 ? {x: event.touches[0].clientX, y: event.touches[0].clientY} : null;
+    }, {passive: true});
+    mainImage.addEventListener('touchend', event => {
+      if (!touchStart || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - touchStart.x;
+      const dy = event.changedTouches[0].clientY - touchStart.y;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) showSlide(position + (dx < 0 ? 1 : -1));
+      touchStart = null;
+    }, {passive: true});
   </script>
 </body>
 </html>
