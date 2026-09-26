@@ -384,47 +384,115 @@
        Update captions and contributions to describe your actual work.
        ============================================================== */
     const projects = [
+  {
+    "id": "ett",
+    "title": "Secure-Swap ETT Holder",
+    "categories": [
+      "assembly",
+      "component"
+    ],
+    "thumbnail": "Secure-swap.png",
+    "summary": "Original bite guard integrated with an existing rail system. Developed in CAD and fabricated as injection-molded parts.",
+    "description": "An endotracheal tube (ETT) holder assembly showing the bite guard, tube adapter, rail interface, and securing strap. The CAD model brings these components together to document their physical arrangement and mating interfaces.",
+    "contribution": "My contribution: designed the entire bite guard section and reconstructed the existing rail geometry from physical measurements for assembly integration. The original rail design is by others; injection mold tooling was also designed by others.",
+    "tags": [
+      "SolidWorks",
+      "Assembly integration",
+      "Injection molding"
+    ],
+    "gallery": [
       {
-        id: 'ett', title: 'Secure-Swap ETT Holder', categories: ['assembly'],
-        thumbnail: 'Secure-swap.png',
-        summary: 'Multi-component endotracheal tube holder with a locking rail and adjustable clamp. The project progressed to injection molded parts.',
-        description: 'An endotracheal tube management assembly incorporating a rail mount, adjustable clamp, tubing, and strap. CAD views and fabricated parts document the assembly.',
-        contribution: 'My contribution: CAD part design. Injection mold tooling was designed by others.',
-        tags: ['SolidWorks', 'Assembly', 'Injection molding'],
-        gallery: [
-          {src: 'Secure-swap.png', alt: 'Secure-Swap ETT holder CAD assembly', caption: 'CAD assembly showing the rail, clamp, and tube arrangement.'},
-          {src: 'ETT_Molded_Parts.jpg', optional: true, alt: 'Injection molded ETT holder components', caption: 'Injection molded components from the ETT holder project. Mold tooling was designed by others.'},
-          {src: 'ETT_Prototype.jpg', optional: true, alt: 'Assembled ETT holder prototype', caption: 'Physical prototype showing the assembled components.'}
-        ]
+        "src": "Secure-swap.png",
+        "alt": "Secure-Swap assembly with bite guard, adapter, and rail",
+        "caption": "CAD assembly: bite guard and rail attachment shown in blue-gray, with the tube adapter and existing rail system providing assembly context."
       },
       {
-        id: 'cap', title: 'PD Three-Nozzle Cap', categories: ['assembly', 'component'],
-        thumbnail: 'PD_3_nozzle_Cap.png',
-        summary: 'Original cap design for lipoaspirate washing, with three fluid connections and internal routing. Integrated with a modified existing cylindrical body.',
-        description: 'A three-nozzle cap designed for a lipoaspirate washing device. The complete assembly provides context for the cap and its connection to the cylindrical body.',
-        contribution: 'My contribution: conceived and designed the cap. Modified an existing body design by rounding the spiral baffles and limiting them to the upper 60% of the interior.',
-        tags: ['SolidWorks', 'Fluid routing', 'Prototype'],
-        gallery: [
-          {src: 'PD_Full_Assembly.png', optional: true, alt: 'Complete cap and cylindrical body assembly', caption: 'Full device assembly. I designed the cap and modified the baffles in an existing cylindrical body design.'},
-          {src: 'PD_3_nozzle_Cap.png', alt: 'Three-nozzle cap CAD view', caption: 'Original cap design showing the fluid connections and routing geometry.'},
-          {src: 'PD_Cap_Section.png', optional: true, alt: 'Cap cross-section with selected dimensions', caption: 'Cap cross-section with selected dimensions showing the internal passages and interface geometry.'},
-          {src: 'PD_Cap_Prototype.jpg', optional: true, alt: 'Fabricated cap prototype', caption: 'Physical prototype of the cap design.'}
-        ]
+        "src": "ETT_Prototype.jpg",
+        "optional": true,
+        "alt": "Physical Secure-Swap ETT holder prototype",
+        "caption": "Physical prototype of the Secure-Swap ETT holder."
       },
       {
-        id: 'saline', title: 'Saline Container Assembly', categories: ['assembly', 'container'],
-        thumbnail: 'Autoclavable_Saline_Container.png',
-        summary: 'Container assembly with volume markings, a barbed outlet, a flanged lid, and a supporting base.',
-        description: 'SolidWorks assembly showing the container, lid, outlet fitting, and base. The transparent CAD view exposes the internal geometry and outlet routing.',
-        contribution: '', // Add your specific design contribution and any verified testing here.
-        tags: ['SolidWorks', 'Assembly', 'Container'],
-        gallery: [
-          {src: 'Autoclavable_Saline_Container.png', alt: 'Saline container CAD assembly', caption: 'CAD assembly with a transparent body to reveal the internal geometry.'},
-          {src: 'Saline_Prototype.jpg', optional: true, alt: 'Saline container prototype', caption: 'Physical prototype of the saline container assembly.'}
-        ]
+        "src": "ETT_Molded_Parts.jpg",
+        "optional": true,
+        "alt": "Injection-molded ETT holder components",
+        "caption": "Injection-molded components. Part design and mold tooling are separate contributions; tooling was designed by others."
       }
-    ];
+    ]
+  },
+  {
+    "id": "cap",
+    "title": "PD Washing Cap",
+    "categories": [
+      "assembly",
+      "component"
+    ],
+    "thumbnail": "PD_Cap_Iso_View.png",
+    "summary": "Original cap design for a lipoaspirate preparation device, combining fluid passages and a threaded body interface. Documented through CAD and resin prototypes.",
+    "description": "A cap developed for a lipoaspirate preparation device (PD). The original luer-ended connection required a luer-to-barb fitting that narrowed the flow opening and was associated with air-vent clogging. The revised design uses a direct barb connection to remove that restriction. An additional barbed port provides an independent route for mechanical processing of adipose tissue, intended to prevent cross-contamination with unprocessed fat.",
+    "contribution": "My contribution: conceived and designed the cap. For the existing cylindrical body, rounded the spiral baffles and shortened their extent to the upper 60% of the interior. The original body design is by others.",
+    "tags": [
+      "SolidWorks",
+      "Fluid routing",
+      "Resin prototyping"
+    ],
+    "gallery": [
+      {
+        "src": "PD_Cap_Iso_View.png",
+        "alt": "Current PD cap CAD in an angled exterior view",
+        "caption": "Current cap CAD: angled exterior view showing the ports, curved passages, and threaded connection region."
+      },
+      {
+        "src": "PD_Cap_Cross_Section.png",
+        "alt": "PD cap CAD cross-section",
+        "caption": "Current cap CAD cross-section showing internal passage geometry and the threaded interface. Light blue-gray indicates cut solid material, not fluid."
+      },
+      {
+        "src": "PD_Cap_Early_Prototype.png",
+        "alt": "Early resin-printed PD cap prototype",
+        "caption": "Early resin-printed cap with the original luer-ended connection. The subsequent CAD revision replaces the restrictive luer-to-barb connection with a direct barb and adds a separate port for the mechanical-processing route."
+      },
+      {
+        "src": "PD_Lab_Prototype.png",
+        "alt": "PD device assembled in its laboratory frame",
+        "caption": "Assembled laboratory prototype showing the cap, cylindrical body, tubing, and mounting frame. This photograph documents the laboratory setup; it is not a revision-matched comparison with the current CAD."
+      }
+    ]
+  },
+  {
+    "id": "saline",
+    "title": "Saline Container Assembly",
+    "categories": [
+      "assembly",
+      "container"
+    ],
+    "thumbnail": "Autoclavable_Saline_Container.png",
+    "summary": "Original 1 L saline container design with a sloped interior, shelf-specific mount, and replaceable lid for outlet revisions without reprinting the reservoir.",
+    "description": "Designed around a required 1 L capacity and the measured shelf dimensions. The interior slopes toward the outlet to encourage drainage. The assembly includes a shelf-mounted bracket, bottom saline holder, gasket, lid, and screw cap, with geometry developed for 3D printing. A separate lid allows outlet changes without reprinting the large resin container, reducing the material needed for those iterations.",
+    "contribution": "My contribution: designed every component from scratch and assembled the complete system in SolidWorks, using the volume requirement, drainage needs, printing constraints, and shelf dimensions to guide the geometry.",
+    "tags": [
+      "SolidWorks",
+      "Modular design",
+      "3D printing"
+    ],
+    "gallery": [
+      {
+        "src": "Autoclavable_Saline_Container.png",
+        "alt": "Saline container CAD assembly with a transparent body",
+        "caption": "Original saline container assembly designed for a 1 L capacity. The transparent CAD view reveals the interior sloping toward the outlet; the separate lid supports outlet revisions without reprinting the reservoir."
+      },
+      {
+        "src": "Saline_Prototype.jpg",
+        "optional": true,
+        "alt": "Physical saline container prototype",
+        "caption": "Physical prototype of the saline container assembly."
+      }
+    ]
+  }
+];
 
+    // Add ETT_Prototype.jpg beside this HTML when ready; it will appear automatically.
+    // Change optional photo filenames above if your exported files use different names.
     const grid = document.getElementById('grid');
     const dialog = document.getElementById('gallery');
     const mainImage = document.getElementById('gallery-image');
