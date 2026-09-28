@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="David Zalazar’s mechanical design portfolio: medical device assemblies, original part design, resin prototypes, and injection-molded components." />
   <title>David Zalazar | Mechanical Design Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
@@ -73,35 +74,6 @@
       margin-top: 6px;
       font-size: 0.85rem;
       color: var(--accent);
-    }
-
-    .filter-bar {
-      padding: 20px 64px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid var(--border);
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-
-    .filter-btn {
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
     }
 
     .grid {
@@ -198,74 +170,6 @@
       vertical-align: middle;
     }
 
-    /* LIGHTBOX */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(26,25,22,0.88);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-      backdrop-filter: blur(6px);
-    }
-
-    .lightbox.open { display: flex; }
-
-    .lightbox-inner {
-      background: var(--surface);
-      max-width: 860px;
-      width: 100%;
-      border-radius: 4px;
-      overflow: hidden;
-      animation: scaleIn 0.2s ease;
-    }
-
-    .lightbox-img {
-      width: 100%;
-      background: #f0efec;
-    }
-
-    .lightbox-img img {
-      width: 100%;
-      max-height: 520px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .lightbox-body { padding: 24px 28px 28px; }
-
-    .lightbox-body h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      font-weight: 400;
-    }
-
-    .lightbox-body p {
-      margin-top: 8px;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .lightbox-body .card-meta { margin-top: 16px; }
-
-    .lightbox-close {
-      position: fixed;
-      top: 24px; right: 28px;
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      color: #fff;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-      line-height: 1;
-    }
-
-    .lightbox-close:hover { opacity: 1; }
-
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -282,7 +186,7 @@
     .card:nth-child(4) { animation-delay: 0.2s; }
 
     @media (max-width: 640px) {
-      header, .filter-bar, footer { padding-left: 24px; padding-right: 24px; }
+      header, footer { padding-left: 24px; padding-right: 24px; }
       header { flex-direction: column; align-items: flex-start; }
       .header-right { text-align: left; }
     }
@@ -323,6 +227,35 @@
     @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } header { padding-top: 36px; padding-bottom: 30px; } .gallery-header { padding: 12px 16px; } .gallery-header h2 { font-size: 1.15rem; } .gallery-controls, .gallery-details { padding-left: 16px; padding-right: 16px; } .gallery-stage img { padding: 12px; height: 36vh; min-height: 200px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
+    /* Final portfolio presentation */
+    :root { --accent: #365968; --accent-light: #edf2f4; --text-secondary: #575c60; --bg: #f5f6f6; --border: #dfe4e6; }
+    header, main, footer { max-width: 1440px; margin-inline: auto; }
+    header { padding: 56px 48px 40px; }
+    .header-right .name { font-size: .95rem; color: var(--text-primary); }
+    main { padding: 30px 48px 56px; }
+    .section-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+    .section-intro h2 { font-size: 1rem; font-weight: 500; }
+    .section-intro p { color: var(--text-secondary); font-size: .85rem; }
+    .grid { gap: 22px; background: transparent; align-items: stretch; }
+    .card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s; }
+    .card:hover { background: white; box-shadow: 0 8px 24px #21313a12; }
+    .card-img { aspect-ratio: 1 / 1; }
+    .card-img img { padding: 22px; }
+    .card-body { display: flex; flex-direction: column; flex: 1; padding: 24px; }
+    .card-body p { font-size: .9rem; font-weight: 400; line-height: 1.65; margin-top: 12px; }
+    .card-meta { margin-bottom: 20px; }
+    .view-project { margin-top: auto; padding-top: 8px; }
+    .tag { letter-spacing: .02em; text-transform: none; font-size: .74rem; }
+    dialog { width: min(1100px, calc(100% - 32px)); }
+    .gallery-stage img { height: clamp(300px, 60vh, 720px); }
+    .image-link { padding: 0 24px 14px; text-align: right; font-size: .8rem; }
+    .image-link a { color: var(--accent); text-underline-offset: 3px; }
+    .gallery-details h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; color: var(--accent); }
+    .gallery-details h3:not(:first-child) { margin-top: 22px; }
+    .gallery-details .contribution { margin-top: 0; }
+    footer { padding: 24px 48px; }
+    @media (max-width: 1000px) and (min-width: 601px) { .grid { grid-template-columns: 1fr; } .card { display: grid; grid-template-columns: 42% 58%; } .card-img { height: 100%; min-height: 310px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--border); } }
+    @media (max-width: 600px) { header { padding: 32px 22px; } main { padding: 24px 20px 36px; } footer { padding: 24px 22px; } .section-intro { display: block; } .section-intro p { margin-top: 6px; } .card-img { aspect-ratio: 4 / 3; } .gallery-stage img { height: 52dvh; min-height: 260px; } .contact a { overflow-wrap: anywhere; } }
   </style>
 </head>
 <body>
@@ -337,12 +270,7 @@
     </div>
   </header>
   <main>
-    <nav class="filter-bar" aria-label="Filter projects">
-      <button class="filter-btn active" data-filter="all" aria-pressed="true">All projects</button>
-      <button class="filter-btn" data-filter="assembly" aria-pressed="false">Assemblies</button>
-      <button class="filter-btn" data-filter="component" aria-pressed="false">Components</button>
-      <button class="filter-btn" data-filter="container" aria-pressed="false">Containers</button>
-    </nav>
+    <div class="section-intro"><h2>Selected projects</h2><p>From design constraints to physical parts.</p></div>
     <div class="grid" id="grid"></div>
     <noscript><p style="padding:24px">Please enable JavaScript to view the project galleries.</p></noscript>
   </main>
@@ -355,6 +283,7 @@
     </div>
     <figure>
       <div class="gallery-stage"><img id="gallery-image" alt=""/><p id="image-error" class="image-error" hidden>Image unavailable. Please try another view.</p></div>
+      <div class="image-link"><a id="full-image" target="_blank" rel="noopener">Open full-size image ↗</a></div>
       <div class="gallery-controls">
         <button id="previous" type="button" aria-label="Previous image">&#8592; Previous</button>
         <span id="gallery-counter" role="status" aria-live="polite"></span>
@@ -364,7 +293,9 @@
     </figure>
     <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Select an image"></div>
     <div class="gallery-details">
+      <h3>Design context</h3>
       <p id="gallery-description"></p>
+      <h3>My contribution</h3>
       <p id="gallery-contribution" class="contribution"></p>
       <div class="card-meta" id="gallery-tags"></div>
     </div>
@@ -376,10 +307,6 @@
        Keep this HTML and the images in the same GitHub Pages folder.
        Each gallery item is { src: 'filename.png', alt: 'description',
                               caption: 'Text shown beneath this image' }.
-       Optional images below are already configured. Upload files with
-       those EXACT names (case-sensitive), or change src to your filename.
-       Missing optional files are quietly skipped: visitors see only real images.
-       Existing images stay visible while you prepare the other views.
        You may add, remove, or reorder images in any gallery array.
        Update captions and contributions to describe your actual work.
        ============================================================== */
@@ -387,11 +314,7 @@
   {
     "id": "ett",
     "title": "Secure-Swap ETT Holder",
-    "categories": [
-      "assembly",
-      "component"
-    ],
-    "thumbnail": "Secure-swap.png",
+    "thumbnail": "ETT 3_4 View_Closeup.png",
     "summary": "Original bite guard integrated with an existing rail system. Developed in CAD and fabricated as injection-molded parts.",
     "description": "An endotracheal tube (ETT) holder assembly showing the bite guard, tube adapter, rail interface, and securing strap. The CAD model brings these components together to document their physical arrangement and mating interfaces.",
     "contribution": "My contribution: designed the entire bite guard section and reconstructed the existing rail geometry from physical measurements for assembly integration. The original rail design is by others; injection mold tooling was also designed by others.",
@@ -402,31 +325,30 @@
     ],
     "gallery": [
       {
-        "src": "Secure-swap.png",
-        "alt": "Secure-Swap assembly with bite guard, adapter, and rail",
-        "caption": "CAD assembly: bite guard and rail attachment shown in blue-gray, with the tube adapter and existing rail system providing assembly context."
+        "src": "ETT 3_4 View_Closeup.png",
+        "alt": "CAD close-up of the bite guard, tube adapter, and rail connection",
+        "caption": "CAD detail of the bite guard and its connection to the existing rail. The warm-toned guard is distinguished from the surrounding assembly."
       },
       {
-        "src": "ETT_Prototype.jpg",
-        "optional": true,
-        "alt": "Physical Secure-Swap ETT holder prototype",
-        "caption": "Physical prototype of the Secure-Swap ETT holder."
+        "src": "ETT_BGRemoved_Full.png",
+        "alt": "Physical ETT holder assembly with securing strap and molded bite guard",
+        "caption": "Physical assembly with the injection-molded bite guard, rail, and securing strap. Photograph with background removed."
       },
       {
-        "src": "ETT_Molded_Parts.jpg",
-        "optional": true,
-        "alt": "Injection-molded ETT holder components",
-        "caption": "Injection-molded components. Part design and mold tooling are separate contributions; tooling was designed by others."
+        "src": "ETT_BGRemoved_BG.png",
+        "alt": "Close-up photograph of the injection-molded bite guard",
+        "caption": "Injection-molded bite guard detail. I designed the bite guard; mold tooling was developed by others. Photograph with background removed."
+      },
+      {
+        "src": "ETT 3_4 View.png",
+        "alt": "Full CAD assembly of the ETT holder and endotracheal tube",
+        "caption": "Overall CAD view showing the bite guard and rail assembly in relation to the endotracheal tube and cuff."
       }
     ]
   },
   {
     "id": "cap",
     "title": "PD Washing Cap",
-    "categories": [
-      "assembly",
-      "component"
-    ],
     "thumbnail": "PD_Cap_Iso_View.png",
     "summary": "Original cap design for a lipoaspirate preparation device, combining fluid passages and a threaded body interface. Documented through CAD and resin prototypes.",
     "description": "A cap developed for a lipoaspirate preparation device (PD). The original luer-ended connection required a luer-to-barb fitting that narrowed the flow opening and was associated with air-vent clogging. The revised design uses a direct barb connection to remove that restriction. An additional barbed port provides an independent route for mechanical processing of adipose tissue, intended to prevent cross-contamination with unprocessed fat.",
@@ -462,14 +384,10 @@
   {
     "id": "saline",
     "title": "Saline Container Assembly",
-    "categories": [
-      "assembly",
-      "container"
-    ],
-    "thumbnail": "Autoclavable_Saline_Container.png",
+    "thumbnail": "Saline_Container_Front.png",
     "summary": "Original 1 L saline container design with a sloped interior, shelf-specific mount, and replaceable lid for outlet revisions without reprinting the reservoir.",
     "description": "Designed around a required 1 L capacity and the measured shelf dimensions. The interior slopes toward the outlet to encourage drainage. The assembly includes a shelf-mounted bracket, bottom saline holder, gasket, lid, and screw cap, with geometry developed for 3D printing. A separate lid allows outlet changes without reprinting the large resin container, reducing the material needed for those iterations.",
-    "contribution": "My contribution: designed every component from scratch and assembled the complete system in SolidWorks, using the volume requirement, drainage needs, printing constraints, and shelf dimensions to guide the geometry.",
+    "contribution": "My contribution: designed all custom components from scratch and assembled the system in SolidWorks. The volume requirement, drainage needs, resin-printing constraints, and measured shelf dimensions guided the geometry. Standard screws, washers, and nuts complete the assembly.",
     "tags": [
       "SolidWorks",
       "Modular design",
@@ -477,29 +395,26 @@
     ],
     "gallery": [
       {
-        "src": "Autoclavable_Saline_Container.png",
-        "alt": "Saline container CAD assembly with a transparent body",
-        "caption": "Original saline container assembly designed for a 1 L capacity. The transparent CAD view reveals the interior sloping toward the outlet; the separate lid supports outlet revisions without reprinting the reservoir."
+        "src": "Saline_Container_Front.png",
+        "alt": "Assembled 1 L saline reservoir with transparent walls, removable lid, and shelf mount",
+        "caption": "Assembled CAD view of the 1 L reservoir. Transparent walls reveal the floor sloping toward the side outlet; the custom holder and shelf bracket support the container."
       },
       {
-        "src": "Saline_Prototype.jpg",
-        "optional": true,
-        "alt": "Physical saline container prototype",
-        "caption": "Physical prototype of the saline container assembly."
+        "src": "Saline_Container_Exploded.png",
+        "alt": "Exploded saline container showing screw cap, fasteners, lid, gasket, reservoir, and holder",
+        "caption": "Exploded assembly showing the screw cap, removable lid, gasket, reservoir, mounting components, and standard hardware. The separate lid enables outlet revisions without reprinting the large resin reservoir."
       }
     ]
   }
 ];
 
-    // Add ETT_Prototype.jpg beside this HTML when ready; it will appear automatically.
-    // Change optional photo filenames above if your exported files use different names.
     const grid = document.getElementById('grid');
     const dialog = document.getElementById('gallery');
     const mainImage = document.getElementById('gallery-image');
     const previous = document.getElementById('previous');
     const next = document.getElementById('next');
     const thumbStrip = document.getElementById('gallery-thumbs');
-    let slides = [], position = 0, requestId = 0, opener = null, previousOverflow = '';
+    let slides = [], position = 0, opener = null, previousOverflow = '';
 
     function element(tag, className, text) {
       const node = document.createElement(tag);
@@ -512,7 +427,7 @@
     }
     projects.forEach(project => {
       const card = element('button', 'card');
-      card.type = 'button'; card.dataset.categories = project.categories.join(' ');
+      card.type = 'button';
       card.setAttribute('aria-label', 'View ' + project.title + ' gallery');
       card.setAttribute('aria-haspopup', 'dialog');
       const imageBox = element('div', 'card-img');
@@ -521,32 +436,10 @@
       const body = element('div', 'card-body');
       body.append(element('h2', '', project.title), element('p', '', project.summary));
       const tags = element('div', 'card-meta'); appendTags(tags, project.tags);
-      body.append(tags, element('span', 'view-project', 'Explore project →'));
+      body.append(tags, element('span', 'view-project', 'View project · ' + project.gallery.length + ' images →'));
       card.append(imageBox, body); grid.append(card);
       card.addEventListener('click', () => openGallery(project, card));
     });
-    document.querySelectorAll('[data-filter]').forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('[data-filter]').forEach(item => {
-          item.classList.toggle('active', item === button);
-          item.setAttribute('aria-pressed', String(item === button));
-        });
-        document.querySelectorAll('.card').forEach(card => {
-          card.hidden = button.dataset.filter !== 'all' && !card.dataset.categories.split(' ').includes(button.dataset.filter);
-        });
-      });
-    });
-    const imageAvailability = new Map();
-    function canLoad(src) {
-      if (!imageAvailability.has(src)) imageAvailability.set(src, new Promise(resolve => {
-        const image = new Image();
-        const timeout = setTimeout(() => resolve(false), 6000);
-        image.onload = () => { clearTimeout(timeout); resolve(true); };
-        image.onerror = () => { clearTimeout(timeout); resolve(false); };
-        image.src = src;
-      }));
-      return imageAvailability.get(src);
-    }
     function buildThumbnails() {
       thumbStrip.replaceChildren();
       slides.forEach((slide, index) => {
@@ -563,6 +456,7 @@
       const slide = slides[position];
       mainImage.hidden = false; document.getElementById('image-error').hidden = true;
       mainImage.alt = slide.alt; mainImage.src = slide.src;
+      document.getElementById("full-image").href = slide.src;
       document.getElementById('gallery-caption').textContent = slide.caption;
       document.getElementById('gallery-counter').textContent = `${position + 1} / ${slides.length}`;
       previous.disabled = next.disabled = slides.length < 2;
@@ -571,27 +465,22 @@
     mainImage.addEventListener('error', () => {
       mainImage.hidden = true; document.getElementById('image-error').hidden = false;
     });
-    async function openGallery(project, card) {
-      const thisRequest = ++requestId; opener = card;
+    function openGallery(project, card) {
+      opener = card;
       document.getElementById('gallery-title').textContent = project.title;
       document.getElementById('gallery-description').textContent = project.description;
       const contribution = document.getElementById('gallery-contribution');
-      contribution.textContent = project.contribution; contribution.hidden = !project.contribution;
+      contribution.textContent = project.contribution.replace(/^My contribution: /, ""); contribution.hidden = !project.contribution;
       appendTags(document.getElementById('gallery-tags'), project.tags);
-      slides = project.gallery.filter(slide => !slide.optional);
+      slides = project.gallery;
       buildThumbnails(); showSlide(0);
       previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden'; dialog.showModal(); dialog.scrollTop = 0;
-      // Load future photos/drawings in the background; no empty public placeholders.
-      const available = await Promise.all(project.gallery.map(async slide => !slide.optional || await canLoad(slide.src)));
-      if (!dialog.open || thisRequest !== requestId) return;
-      const selectedSrc = slides[position].src;
-      slides = project.gallery.filter((slide, index) => available[index]);
-      buildThumbnails(); showSlide(Math.max(0, slides.findIndex(slide => slide.src === selectedSrc)));
+
     }
     function closeGallery() { dialog.close(); }
     dialog.addEventListener('close', () => {
-      ++requestId; document.body.style.overflow = previousOverflow; opener?.focus();
+      document.body.style.overflow = previousOverflow; opener?.focus();
     });
     dialog.querySelector('.gallery-close').addEventListener('click', closeGallery);
     dialog.addEventListener('click', event => {
