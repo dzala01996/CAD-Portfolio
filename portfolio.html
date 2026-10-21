@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="David Zalazar’s mechanical design portfolio: medical device assemblies, original part design, resin prototypes, and injection-molded components." />
+  <meta name="description" content="David Zalazar’s mechanical and product design portfolio: CAD assemblies, medical-device mechanisms, fluid-handling hardware, prototypes, and engineering design decisions." />
   <title>David Zalazar | Mechanical Design Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
@@ -256,34 +256,97 @@
     footer { padding: 24px 48px; }
     @media (max-width: 1000px) and (min-width: 601px) { .grid { grid-template-columns: 1fr; } .card { display: grid; grid-template-columns: 42% 58%; } .card-img { height: 100%; min-height: 310px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--border); } }
     @media (max-width: 600px) { header { padding: 32px 22px; } main { padding: 24px 20px 36px; } footer { padding: 24px 22px; } .section-intro { display: block; } .section-intro p { margin-top: 6px; } .card-img { aspect-ratio: 4 / 3; } .gallery-stage img { height: 52dvh; min-height: 260px; } .contact a { overflow-wrap: anywhere; } }
+
+    /* Revision: prioritise engineering decisions before image galleries. */
+    .header-right .role { margin-top: 7px; font-size: .8rem; line-height: 1.55; color: var(--text-primary); }
+    .header-right .role span { color: var(--text-secondary); }
+    .header-right .contact { margin-top: 10px; }
+    .contact a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; }
+    .contact a:hover { text-decoration-color: currentColor; }
+    .eyebrow, .visual-label { text-transform: uppercase; font-size: .72rem; font-weight: 500; letter-spacing: .075em; color: var(--accent); }
+    .gallery-heading { min-width: 0; }
+    .gallery-heading h2 { margin-top: 5px; }
+    .case-overview { padding: 25px 28px 23px; background: #f8fafb; border-bottom: 1px solid var(--border); }
+    .case-lead { color: var(--text-primary); font-size: .98rem; line-height: 1.55; max-width: 900px; }
+    .case-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; margin-top: 24px; }
+    .case-facts section { border-left: 2px solid #c5d5da; padding-left: 14px; }
+    .case-facts h3 { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; font-size: .71rem; margin-bottom: 9px; font-weight: 600; }
+    .case-facts p { color: #393d40; line-height: 1.6; font-size: .845rem; }
+    .case-foot { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+    .case-foot .card-meta { margin: 0; }
+    .deep-link { color: var(--accent); font-size: .8rem; text-underline-offset: 3px; border: 0; background: transparent; cursor: pointer; text-decoration: underline; }
+    .visual-label { padding: 24px 28px 8px; display: flex; gap: 8px; align-items: baseline; }
+    .visual-label span { color: var(--text-secondary); letter-spacing: normal; font-size: .75rem; text-transform: none; }
+    .gallery-stage img { height: clamp(280px, 46vh, 560px); padding: 12px 28px 4px; }
+    .gallery-caption { font-size: .855rem; }
+    .design-notes { border-top: 1px solid var(--border); padding: 26px 28px 36px; }
+    .design-notes > h3 { font: 400 1.35rem 'DM Serif Display',serif; margin-bottom: 17px; }
+    .card-eyebrow { display: block; margin-bottom: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: .07em; font-size: .71rem; font-weight: 500; }
+    .decision-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+    .decision { padding: 16px 18px; background: #f8fafb; border: 1px solid var(--border); border-radius: 6px; }
+    .decision h4 { font-size: .84rem; font-weight: 600; margin-bottom: 7px; }
+    .decision p { font-size: .83rem; line-height: 1.6; color: var(--text-secondary); }
+    .comparison, .component-list { margin-top: 28px; }
+    .comparison > h4, .component-list > h4 { font-size: .91rem; margin-bottom: 14px; }
+    .comparison-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .comparison-panel { border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+    .comparison-panel h5 { font-size: .8rem; font-weight: 600; padding: 13px 16px; background: #f8fafb; }
+    .comparison-panel img { width: 100%; height: 250px; object-fit: contain; padding: 10px; background: white; }
+    .comparison-panel p { font-size: .85rem; color: var(--text-secondary); padding: 12px 16px 17px; line-height: 1.6; }
+    .comparison-note { color: var(--text-secondary); font-size: .77rem; line-height: 1.6; margin-top: 10px; }
+    .component-list ol { columns: 2; padding-left: 20px; margin-top: 10px; }
+    .component-list li { font-size: .86rem; line-height: 1.8; padding-right: 10px; break-inside: avoid; }
+    .attribution { margin-top: 26px; padding: 14px 18px; background: #f5f6f6; border-left: 3px solid #c4cdd0; font-size: .83rem; line-height: 1.65; color: var(--text-secondary); }
+    @media(max-width: 750px) {
+      .case-facts { grid-template-columns: 1fr; gap: 16px; }
+      .case-overview { padding: 19px 17px; }
+      .visual-label { padding: 19px 17px 7px; }
+      .gallery-stage img { height: 39dvh; min-height: 225px; padding: 8px 16px 0; }
+      .design-notes { padding: 21px 17px 30px; }
+      .decision-list { grid-template-columns: 1fr; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .component-list ol { columns: 1; }
+      .gallery-caption, .image-link, .gallery-thumbs { padding-left: 17px; padding-right: 17px; }
+    }
+
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
       <h1>Mechanical Design<br/><em>Work Samples</em></h1>
-      <p>Medical device components and assemblies designed in SolidWorks, with selected work spanning CAD, prototyping, and fabricated parts.</p>
+      <p>Mechanical design and product development across medical devices, fluid-handling systems, and functional prototypes. Explore the constraints, CAD decisions, and hands-on iterations behind each project.</p>
     </div>
     <div class="header-right">
-      <div class="name">David Zalazar</div>
+      <div class="name">David Zalazar</div><div class="role">Mechanical &amp; Product Design Engineer<br/><span>Biomedical Engineering Ph.D. Candidate</span></div>
       <div class="contact"><a href="mailto:zalazar.david815@gmail.com">zalazar.david815@gmail.com</a></div>
     </div>
   </header>
   <main>
-    <div class="section-intro"><h2>Selected projects</h2><p>From design constraints to physical parts.</p></div>
+    <div class="section-intro"><h2>Selected engineering projects</h2><p>Mechanical design · Prototyping · Design iteration</p></div>
     <div class="grid" id="grid"></div>
     <noscript><p style="padding:24px">Please enable JavaScript to view the project galleries.</p></noscript>
   </main>
-  <footer><p><span class="dot"></span>David Zalazar — SolidWorks Work Samples</p></footer>
+  <footer><p><span class="dot"></span>David Zalazar — Mechanical &amp; Product Design</p><p>Project descriptions distinguish my contributions from work by collaborators.</p></footer>
 
-  <dialog id="gallery" aria-labelledby="gallery-title">
+  <dialog id="gallery" aria-labelledby="gallery-title" aria-describedby="gallery-intro">
     <div class="gallery-header">
-      <h2 id="gallery-title"></h2>
-      <button class="gallery-close" type="button" aria-label="Close project gallery" autofocus>&times;</button>
+      <div class="gallery-heading"><div class="eyebrow" id="gallery-eyebrow">Engineering case study</div><h2 id="gallery-title"></h2></div>
+      <button class="gallery-close" type="button" aria-label="Close project details" autofocus>&times;</button>
     </div>
+    <div class="case-overview" id="gallery-intro">
+      <p id="gallery-one-line" class="case-lead"></p>
+      <div class="case-facts">
+        <section><h3>Challenge</h3><p id="gallery-challenge"></p></section>
+        <section><h3>My engineering work</h3><p id="gallery-work"></p></section>
+        <section><h3>Outcome / status</h3><p id="gallery-outcome"></p></section>
+      </div>
+      <div class="case-foot"><div class="card-meta" id="gallery-tags"></div><button type="button" id="project-deep-link" class="deep-link">Copy project link ↗</button></div>
+    </div>
+    <div class="visual-label">CAD &amp; prototype evidence <span id="gallery-picture-count"></span></div>
     <figure>
       <div class="gallery-stage"><img id="gallery-image" alt=""/><p id="image-error" class="image-error" hidden>Image unavailable. Please try another view.</p></div>
-      <div class="image-link"><a id="full-image" target="_blank" rel="noopener">Open full-size image ↗</a></div>
+      <div class="image-link"><a id="full-image" target="_blank" rel="noopener">View image at full resolution ↗</a></div>
       <div class="gallery-controls">
         <button id="previous" type="button" aria-label="Previous image">&#8592; Previous</button>
         <span id="gallery-counter" role="status" aria-live="polite"></span>
@@ -292,13 +355,13 @@
       <figcaption class="gallery-caption" id="gallery-caption"></figcaption>
     </figure>
     <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Select an image"></div>
-    <div class="gallery-details">
-      <h3>Design context</h3>
-      <p id="gallery-description"></p>
-      <h3>My contribution</h3>
-      <p id="gallery-contribution" class="contribution"></p>
-      <div class="card-meta" id="gallery-tags"></div>
-    </div>
+    <section class="design-notes" aria-labelledby="notes-title">
+      <h3 id="notes-title">Design decisions &amp; details</h3>
+      <div id="case-decision-list" class="decision-list"></div>
+      <div class="comparison" id="case-comparison" hidden></div>
+      <div class="component-list" id="case-components" hidden></div>
+      <div class="attribution" id="case-attribution"></div>
+    </section>
   </dialog>
 
   <script>
@@ -314,95 +377,184 @@
   {
     "id": "ett",
     "title": "Secure-Swap ETT Holder",
+    "eyebrow": "Beat Medical · Medical-device product development · 2020–2023",
     "thumbnail": "ETT 3_4 View_Closeup.png",
-    "summary": "Original bite guard integrated with an existing rail system. Developed in CAD and fabricated as injection-molded parts.",
-    "description": "An endotracheal tube (ETT) holder assembly showing the bite guard, tube adapter, rail interface, and securing strap. The CAD model brings these components together to document their physical arrangement and mating interfaces.",
-    "contribution": "My contribution: designed the entire bite guard section and reconstructed the existing rail geometry from physical measurements for assembly integration. The original rail design is by others; injection mold tooling was also designed by others.",
+    "summary": "Designed a bite-guard assembly and adjustment mechanism; integrated them with an existing ETT-holder rail and built physical prototypes.",
+    "lead": "An early-stage medical-device design developed through Beat Medical, a venture I co-founded following the 2020 UCSF COVID-19 Hackathon.",
+    "challenge": "Develop an adjustable, removable bite guard compatible with an existing endotracheal-tube holder while considering fit, clearance, tube retention, and assembly.",
+    "work": "Owned the 3D CAD and prototype iteration for the device. Designed the bite guard, compliant push-button adjustment mechanism, and securing strap; reverse-engineered the existing rail from measurements for assembly integration.",
+    "outcome": "Produced multiple physical prototypes and supplied CAD for components that progressed to an injection-molded assembly. Evaluated fit, mechanical retention, and adjustment informally; no formal clinical validation is claimed.",
     "tags": [
       "SolidWorks",
-      "Assembly integration",
-      "Injection molding"
+      "Mechanism design",
+      "Prototype iteration",
+      "Assembly fit"
     ],
+    "decisions": [
+      [
+        "Adjustable mechanism",
+        "A compliant push-button releases the slider for position adjustment; geometry had to remain secure when not pressed."
+      ],
+      [
+        "Existing interfaces",
+        "Reconstructed the mating rail geometry from physical measurements rather than claiming to have originated the rail."
+      ],
+      [
+        "Prototype-driven fit",
+        "Used physical builds to check tube-to-wall clearance, retaining features, strap function, and assembly interactions."
+      ],
+      [
+        "Design handoff",
+        "Created 3D component and assembly CAD for prototyping and manufacturing communication; tooling was handled by others."
+      ]
+    ],
+    "attribution": "Attribution and scope: I co-founded Beat Medical and owned the CAD/prototype engineering described here. The original rail system and injection-mold tooling were designed by others. Co-founder participation and prototype checks do not imply completed clinical testing, FDA clearance, or commercial launch. The venture filed a provisional patent application, not an issued patent.",
     "gallery": [
       {
         "src": "ETT 3_4 View_Closeup.png",
-        "alt": "CAD close-up of the bite guard, tube adapter, and rail connection",
-        "caption": "CAD detail of the bite guard and its connection to the existing rail. The warm-toned guard is distinguished from the surrounding assembly."
+        "alt": "CAD close-up showing the bite guard and its mating interface with the rail",
+        "caption": "CAD assembly detail: the bite-guard geometry and its connection to the existing rail. The original rail architecture came from outside the project."
       },
       {
         "src": "ETT_BGRemoved_Full.png",
-        "alt": "Physical ETT holder assembly with securing strap and molded bite guard",
-        "caption": "Physical assembly with the injection-molded bite guard, rail, and securing strap. Photograph with background removed."
+        "alt": "Physical ETT holder showing the molded bite guard, rail, and securing strap",
+        "caption": "Physical assembly showing the molded bite-guard geometry and securing strap. Manufacturing of the injection mold was handled by others."
       },
       {
         "src": "ETT_BGRemoved_BG.png",
-        "alt": "Close-up photograph of the injection-molded bite guard",
-        "caption": "Injection-molded bite guard detail. I designed the bite guard; mold tooling was developed by others. Photograph with background removed."
+        "alt": "Close-up of the physical bite-guard component",
+        "caption": "Close-up of a fabricated bite guard. My work covered component geometry and prototype iteration, not the injection-mold tooling."
       },
       {
         "src": "ETT 3_4 View.png",
-        "alt": "Full CAD assembly of the ETT holder and endotracheal tube",
-        "caption": "Overall CAD view showing the bite guard and rail assembly in relation to the endotracheal tube and cuff."
+        "alt": "Complete CAD assembly displayed with a modeled endotracheal tube and cuff",
+        "caption": "Overall assembly CAD illustrating tube-holder geometry and interface fit in context."
       }
     ]
   },
   {
     "id": "cap",
     "title": "PD Washing Cap",
+    "eyebrow": "Fluidic device · Component redesign",
     "thumbnail": "PD_Cap_Iso_View.png",
-    "summary": "Original cap design for a lipoaspirate preparation device, combining fluid passages and a threaded body interface. Documented through CAD and resin prototypes.",
-    "description": "A cap developed for a lipoaspirate preparation device (PD). The original luer-ended connection required a luer-to-barb fitting that narrowed the flow opening and was associated with air-vent clogging. The revised design uses a direct barb connection to remove that restriction. An additional barbed port provides an independent route for mechanical processing of adipose tissue, intended to prevent cross-contamination with unprocessed fat.",
-    "contribution": "My contribution: conceived and designed the cap. For the existing cylindrical body, rounded the spiral baffles and shortened their extent to the upper 60% of the interior. The original body design is by others.",
+    "summary": "Revised a fluidic device cap to eliminate a restrictive luer-to-barb adapter and separate processing flow paths.",
+    "lead": "A component redesign for a preparation device that washes and mechanically processes lipoaspirate.",
+    "challenge": "An earlier luer-ended connection required a fitting that narrowed the opening and was associated with vent clogging. Mechanical processing also needed a separate fluid route.",
+    "work": "Designed the revised cap in SolidWorks with a direct barb connection and an additional barbed port. Rounded and shortened interior baffles in the existing cylindrical body while preserving its original architecture.",
+    "outcome": "Created revised CAD and documented an earlier resin prototype and laboratory setup. The images show different design stages, not a matched performance comparison; no quantitative improvement is attributed to this particular cap.",
     "tags": [
       "SolidWorks",
       "Fluid routing",
-      "Resin prototyping"
+      "Design iteration",
+      "Resin printing"
     ],
+    "decisions": [
+      [
+        "Remove a restrictive adapter",
+        "Replaced the original luer-ended connection and separate luer-to-barb fitting with a direct barb."
+      ],
+      [
+        "Separate processing route",
+        "Added an independent barbed pathway for mechanically processed adipose tissue."
+      ],
+      [
+        "Modify existing geometry",
+        "Rounded spiral baffles and shortened their extent to the upper 60% of the existing cylindrical body."
+      ]
+    ],
+    "comparison": [
+      {
+        "title": "Earlier concept",
+        "src": "PD_Cap_Early_Prototype.png",
+        "label": "Resin prototype with original luer-ended connection",
+        "body": "Required an adapter that reduced the effective opening and was associated with air-vent clogging."
+      },
+      {
+        "title": "Revised cap CAD",
+        "src": "PD_Cap_Iso_View.png",
+        "label": "Revised SolidWorks exterior model",
+        "body": "Uses a direct barb connection, plus a separate barbed fluid path for mechanical processing."
+      }
+    ],
+    "comparisonNote": "These views show different design stages and media (an early physical print versus later CAD), not equivalent measured test conditions.",
+    "attribution": "Attribution and scope: I conceived and designed this cap and modified the spiral baffles. The original preparation-device cylindrical body was designed by others. The separate three-nozzle dynamic-washing study and its timing results are not claimed as outcomes of this cap.",
     "gallery": [
       {
         "src": "PD_Cap_Iso_View.png",
-        "alt": "Current PD cap CAD in an angled exterior view",
-        "caption": "Current cap CAD: angled exterior view showing the ports, curved passages, and threaded connection region."
+        "alt": "Revised PD cap CAD angled isometric view showing external ports and threads",
+        "caption": "Revised cap exterior CAD, including barbed ports, curved channels, and the threaded connection."
       },
       {
         "src": "PD_Cap_Cross_Section.png",
-        "alt": "PD cap CAD cross-section",
-        "caption": "Current cap CAD cross-section showing internal passage geometry and the threaded interface. Light blue-gray indicates cut solid material, not fluid."
+        "alt": "Cross-section of revised PD cap showing internal passages",
+        "caption": "Cross-section showing internal passage geometry and threaded connection. The light blue-gray region is cut solid material, not fluid."
       },
       {
         "src": "PD_Cap_Early_Prototype.png",
-        "alt": "Early resin-printed PD cap prototype",
-        "caption": "Early resin-printed cap with the original luer-ended connection. The subsequent CAD revision replaces the restrictive luer-to-barb connection with a direct barb and adds a separate port for the mechanical-processing route."
+        "alt": "Earlier physical resin prototype with original luer-ended connection",
+        "caption": "Early resin print representing a prior configuration, before the direct-barb redesign."
       },
       {
         "src": "PD_Lab_Prototype.png",
-        "alt": "PD device assembled in its laboratory frame",
-        "caption": "Assembled laboratory prototype showing the cap, cylindrical body, tubing, and mounting frame. This photograph documents the laboratory setup; it is not a revision-matched comparison with the current CAD."
+        "alt": "Prepared device laboratory assembly with cap, tubing, and fixture",
+        "caption": "Laboratory device setup for context; the photograph is not a revision-matched view of the current CAD."
       }
     ]
   },
   {
     "id": "saline",
     "title": "Saline Container Assembly",
+    "eyebrow": "System packaging · Modular 3D-printed assembly",
     "thumbnail": "Saline_Container_Front.png",
-    "summary": "Original 1 L saline container design with a sloped interior, shelf-specific mount, and replaceable lid for outlet revisions without reprinting the reservoir.",
-    "description": "Designed around a required 1 L capacity and the measured shelf dimensions. The interior slopes toward the outlet to encourage drainage. The assembly includes a shelf-mounted bracket, bottom saline holder, gasket, lid, and screw cap, with geometry developed for 3D printing. A separate lid allows outlet changes without reprinting the large resin container, reducing the material needed for those iterations.",
-    "contribution": "My contribution: designed all custom components from scratch and assembled the system in SolidWorks. The volume requirement, drainage needs, resin-printing constraints, and measured shelf dimensions guided the geometry. Standard screws, washers, and nuts complete the assembly.",
+    "summary": "Designed a shelf-mounted 1 L saline reservoir with a sloped floor, gasketed closure, and replaceable outlet lid.",
+    "lead": "A SolidWorks assembly designed around reservoir volume, shelf geometry, drainage, and resin-printing constraints.",
+    "challenge": "Package a 1 L reservoir in the available shelf space, guide fluid toward an outlet, and allow iterative changes without reprinting the largest component.",
+    "work": "Designed the custom reservoir, support, bracket, lid, and gasket interface from scratch in SolidWorks, accounting for measured shelf dimensions and assembly with standard fasteners.",
+    "outcome": "Completed assembly and exploded CAD views documenting the 1 L design and modular lid concept. The gallery shows design CAD; fabrication and functional validation of this exact assembly are not documented here.",
     "tags": [
       "SolidWorks",
-      "Modular design",
-      "3D printing"
+      "Assembly design",
+      "Modular prototyping",
+      "Packaging constraints"
     ],
+    "decisions": [
+      [
+        "Design to capacity and envelope",
+        "Set geometry against the 1 L requirement and measured shelf dimensions."
+      ],
+      [
+        "Drainage geometry",
+        "Sloped the container floor toward a side outlet to encourage drainage."
+      ],
+      [
+        "Low-cost revisions",
+        "Separated the outlet-bearing lid from the large reservoir to avoid reprinting the entire tank for outlet iterations."
+      ],
+      [
+        "Serviceable assembly",
+        "Used a replaceable gasketed lid, custom supports, and standard screws, washers, and nuts."
+      ]
+    ],
+    "components": [
+      "Screw cap",
+      "Removable outlet lid",
+      "Gasket",
+      "1 L reservoir body",
+      "Bottom saline holder",
+      "Shelf-mounted bracket",
+      "Standard screws, washers, and nuts"
+    ],
+    "attribution": "Attribution and scope: I designed the custom components and SolidWorks assembly. The current work samples are CAD views, not evidence of manufacturing validation, seal qualification, or a fabricated final product.",
     "gallery": [
       {
         "src": "Saline_Container_Front.png",
-        "alt": "Assembled 1 L saline reservoir with transparent walls, removable lid, and shelf mount",
-        "caption": "Assembled CAD view of the 1 L reservoir. Transparent walls reveal the floor sloping toward the side outlet; the custom holder and shelf bracket support the container."
+        "alt": "Transparent SolidWorks model of assembled 1 L reservoir and supporting bracket",
+        "caption": "Assembled CAD showing the 1 L reservoir, sloped interior, outlet, lid, and mounting components."
       },
       {
         "src": "Saline_Container_Exploded.png",
-        "alt": "Exploded saline container showing screw cap, fasteners, lid, gasket, reservoir, and holder",
-        "caption": "Exploded assembly showing the screw cap, removable lid, gasket, reservoir, mounting components, and standard hardware. The separate lid enables outlet revisions without reprinting the large resin reservoir."
+        "alt": "SolidWorks exploded view with removable lid, gasket, reservoir, supports, and fasteners",
+        "caption": "Exploded CAD for assembly communication. Components include the screw cap, removable outlet lid, gasket, vessel, support bracket, and hardware."
       }
     ]
   }
@@ -434,7 +586,7 @@
       const image = element('img'); image.src = project.thumbnail; image.alt = project.title; image.loading = 'lazy';
       imageBox.append(image);
       const body = element('div', 'card-body');
-      body.append(element('h2', '', project.title), element('p', '', project.summary));
+      body.append(element('span', 'card-eyebrow', project.eyebrow.split('·')[0].trim()), element('h2', '', project.title), element('p', '', project.summary));
       const tags = element('div', 'card-meta'); appendTags(tags, project.tags);
       body.append(tags, element('span', 'view-project', 'View project · ' + project.gallery.length + ' images →'));
       card.append(imageBox, body); grid.append(card);
@@ -465,22 +617,63 @@
     mainImage.addEventListener('error', () => {
       mainImage.hidden = true; document.getElementById('image-error').hidden = false;
     });
-    function openGallery(project, card) {
+    function renderDecisions(project) {
+      const list = document.getElementById('case-decision-list');
+      list.replaceChildren();
+      project.decisions.forEach(([title, explanation]) => {
+        const item = element('div', 'decision');
+        item.append(element('h4', '', title), element('p', '', explanation));
+        list.append(item);
+      });
+      const compare = document.getElementById('case-comparison');
+      compare.replaceChildren(); compare.hidden = !project.comparison;
+      if (project.comparison) {
+        const heading = element('h4','', 'Design iteration: earlier → revised');
+        const comparisonGrid = element('div','comparison-grid');
+        project.comparison.forEach(entry => {
+          const panel = element('div','comparison-panel');
+          panel.append(element('h5','',entry.title));
+          const img = element('img'); img.src = entry.src; img.alt = entry.label; img.loading = 'lazy';
+          panel.append(img, element('p','',entry.body)); comparisonGrid.append(panel);
+        });
+        compare.append(heading,comparisonGrid,element('p','comparison-note',project.comparisonNote || ''));
+      }
+      const componentList = document.getElementById('case-components');
+      componentList.replaceChildren(); componentList.hidden = !project.components;
+      if (project.components) {
+        componentList.append(element('h4','', 'Exploded assembly — component legend'));
+        const list = element('ol');
+        project.components.forEach(component => list.append(element('li','',component)));
+        componentList.append(list);
+      }
+      document.getElementById('case-attribution').textContent = project.attribution || '';
+    }
+    function openGallery(project, card, updateHash = true) {
       opener = card;
       document.getElementById('gallery-title').textContent = project.title;
-      document.getElementById('gallery-description').textContent = project.description;
-      const contribution = document.getElementById('gallery-contribution');
-      contribution.textContent = project.contribution.replace(/^My contribution: /, ""); contribution.hidden = !project.contribution;
+      document.getElementById('gallery-eyebrow').textContent = project.eyebrow;
+      document.getElementById('gallery-one-line').textContent = project.lead;
+      document.getElementById('gallery-challenge').textContent = project.challenge;
+      document.getElementById('gallery-work').textContent = project.work;
+      document.getElementById('gallery-outcome').textContent = project.outcome;
       appendTags(document.getElementById('gallery-tags'), project.tags);
+      document.getElementById('gallery-picture-count').textContent = '· ' + project.gallery.length + ' views';
+      const deepLink = document.getElementById('project-deep-link');
+      deepLink.dataset.projectId = project.id;
+      deepLink.textContent = 'Copy project link ↗';
       slides = project.gallery;
+      renderDecisions(project);
       buildThumbnails(); showSlide(0);
       previousOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden'; dialog.showModal(); dialog.scrollTop = 0;
-
+      document.body.style.overflow = 'hidden';
+      if (updateHash && /^https?:$/.test(window.location.protocol)) history.replaceState(null, '', '#' + encodeURIComponent(project.id));
+      dialog.showModal(); dialog.scrollTop = 0;
     }
     function closeGallery() { dialog.close(); }
     dialog.addEventListener('close', () => {
-      document.body.style.overflow = previousOverflow; opener?.focus();
+      document.body.style.overflow = previousOverflow;
+      if (/^https?:$/.test(window.location.protocol) && projects.some(project => '#' + project.id === window.location.hash)) history.replaceState(null, '', window.location.pathname + window.location.search);
+      opener?.focus();
     });
     dialog.querySelector('.gallery-close').addEventListener('click', closeGallery);
     dialog.addEventListener('click', event => {
@@ -506,6 +699,28 @@
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) showSlide(position + (dx < 0 ? 1 : -1));
       touchStart = null;
     }, {passive: true});
+    document.getElementById('project-deep-link').addEventListener('click', async event => {
+      const button = event.currentTarget;
+      const target = window.location.href.split('#')[0] + '#' + encodeURIComponent(button.dataset.projectId);
+      try {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(target);
+        button.textContent = 'Project link copied ✓';
+      } catch (_) {
+        // The project hash is already visible in the address bar on GitHub Pages.
+        button.textContent = 'Copy the URL from your address bar';
+      }
+    });
+    // Direct project URLs: portfolio.html#ett / #cap / #saline.
+    function openFromHash() {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const project = projects.find(item => item.id === id);
+      if (!project) return;
+      const index = projects.indexOf(project);
+      if (!dialog.open) openGallery(project, grid.children[index], false);
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
   </script>
 </body>
 </html>
