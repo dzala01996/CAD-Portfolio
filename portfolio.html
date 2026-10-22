@@ -515,25 +515,27 @@
     "title": "Saline Container Assembly",
     "eyebrow": "System packaging · Modular 3D-printed assembly",
     "thumbnail": "Saline_Container_Front.png",
-    "summary": "Designed a shelf-mounted 1 L saline reservoir with a sloped floor, gasketed closure, and replaceable outlet lid.",
-    "lead": "A SolidWorks assembly designed around reservoir volume, shelf geometry, drainage, and resin-printing constraints.",
-    "challenge": "Package a 1 L reservoir in the available shelf space, guide fluid toward an outlet, and allow iterative changes without reprinting the largest component.",
-    "work": "Designed the custom reservoir, support, bracket, lid, and gasket interface from scratch in SolidWorks, accounting for measured shelf dimensions and assembly with standard fasteners.",
-    "outcome": "Completed assembly and exploded CAD views documenting the 1 L design and modular lid concept. The gallery shows design CAD; fabrication and functional validation of this exact assembly are not documented here.",
+    "summary": "Designed a graduated 1 L saline reservoir with calculated fill-level ridges, a modular gasketed closure, and a planned filtered vent.",
+    "lead": "A SolidWorks reservoir assembly designed around liquid volume, 50–100 mL fill graduations, shelf geometry, drainage, and a closed fluid path with filtered venting planned.",
+    "challenge": "Fit a 1 L saline reservoir within available shelf space, provide useful volume graduations, guide drainage toward an outlet, and plan for a gasketed closure with air exchange through a dedicated 0.2 µm vent filter.",
+    "work": "Designed the reservoir, support, bracket, modular lid, and gasket interface in SolidWorks. Calculated internal volume to place measurement ridges at 50 or 100 mL increments, depending on the container configuration, and incorporated a sloped floor, measured shelf constraints, and standard fastening hardware.",
+    "outcome": "Completed an assembled and exploded CAD design with calculated fill graduations and a modular closure. The intended 0.2 µm filtered vent is a design requirement; the reservoir has not yet been fabricated or evaluated for fill accuracy, leakage, vent airflow, or sterility.",
     "tags": [
       "SolidWorks",
       "Assembly design",
       "Modular prototyping",
+      "Volume calculations",
+      "Graduated reservoir",
       "Packaging constraints"
     ],
     "decisions": [
       [
         "Design to capacity and envelope",
-        "Set geometry against the 1 L requirement and measured shelf dimensions."
+        "Set geometry against the 1 L target capacity and measured shelf dimensions; calculated internal fill volumes to locate 50 or 100 mL graduation ridges according to the configuration."
       ],
       [
         "Drainage geometry",
-        "Sloped the container floor toward a side outlet to encourage drainage."
+        "Sloped the container floor toward a side outlet to encourage drainage; drainage performance has not yet been tested."
       ],
       [
         "Low-cost revisions",
@@ -541,7 +543,7 @@
       ],
       [
         "Serviceable assembly",
-        "Used a replaceable gasketed lid, custom supports, and standard screws, washers, and nuts."
+        "Designed a removable gasketed lid, custom supports, and standard screws, washers, and nuts. The planned 0.2 µm filtered vent is intended to allow pressure equalization while limiting unfiltered air exchange; sealing, airflow, and sterility are unverified."
       ]
     ],
     "components": [
@@ -553,12 +555,12 @@
       "Shelf-mounted bracket",
       "Standard screws, washers, and nuts"
     ],
-    "attribution": "Attribution and scope: I designed the custom components and SolidWorks assembly. The current work samples are CAD views, not evidence of manufacturing validation, seal qualification, or a fabricated final product.",
+    "attribution": "Attribution and scope: I designed the custom components and SolidWorks assembly and calculated the volume-graduation locations. The vent filter is a planned system feature, not a validated sterile barrier. The current images are CAD views; fabrication, fill-calibration tests, seal/leak testing, pressure/vent-flow assessment, and sterile-operation verification have not been completed.",
     "gallery": [
       {
         "src": "Saline_Container_Front.png",
         "alt": "Transparent SolidWorks model of assembled 1 L reservoir and supporting bracket",
-        "caption": "Assembled CAD showing the 1 L reservoir, sloped interior, outlet, lid, and mounting components."
+        "caption": "Assembled CAD showing the 1 L reservoir, calculated volume-graduation ridges, sloped interior, outlet, and mounting components. Physical fill calibration remains to be tested."
       },
       {
         "src": "Saline_Container_Exploded.png",
