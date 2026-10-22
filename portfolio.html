@@ -279,6 +279,8 @@
     .visual-label span { color: var(--text-secondary); letter-spacing: normal; font-size: .75rem; text-transform: none; }
     .gallery-stage img { height: clamp(280px, 46vh, 560px); padding: 12px 28px 4px; }
     .gallery-caption { font-size: .855rem; }
+    .image-source { padding: 0 24px 16px; font-size: .77rem; line-height: 1.5; color: var(--text-secondary); }
+    .image-source a { color: var(--accent); text-underline-offset: 2px; }
     .design-notes { border-top: 1px solid var(--border); padding: 26px 28px 36px; }
     .design-notes > h3 { font: 400 1.35rem 'DM Serif Display',serif; margin-bottom: 17px; }
     .card-eyebrow { display: block; margin-bottom: 9px; color: var(--accent); text-transform: uppercase; letter-spacing: .07em; font-size: .71rem; font-weight: 500; }
@@ -353,6 +355,7 @@
         <button id="next" type="button" aria-label="Next image">Next &#8594;</button>
       </div>
       <figcaption class="gallery-caption" id="gallery-caption"></figcaption>
+      <div class="image-source" id="gallery-source" hidden></div>
     </figure>
     <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Select an image"></div>
     <section class="design-notes" aria-labelledby="notes-title">
@@ -434,71 +437,76 @@
   },
   {
     "id": "cap",
-    "title": "PD Washing Cap",
-    "eyebrow": "Fluidic device · Component redesign",
+    "title": "PD Washing Cap & Three-Way Manifold",
+    "eyebrow": "Mechanical design · Fluidic integration",
     "thumbnail": "PD_Cap_Iso_View.png",
-    "summary": "Redesigned a fluidic preparation-device cap and supported dynamic washing, reducing automated wash time from approximately 45 to 12 minutes.",
-    "lead": "A preparation-device cap designed for an automated platform that dynamically washes and mechanically processes lipoaspirate.",
-    "challenge": "An earlier luer-ended connection required a fitting that narrowed the opening and was associated with vent clogging. Mechanical processing also needed a separate fluid route.",
-    "work": "Designed the revised cap in SolidWorks with a direct barb connection and an additional barbed port. Rounded and shortened interior baffles in the existing cylindrical body while preserving its original architecture.",
-    "outcome": "The preparation-device cap was part of development of the automated dynamic-washing platform, which reduced washing time from approximately 45 to 12 minutes in system-level experiments. This is a platform outcome; the images are design-stage references, not a controlled cap-only comparison.",
+    "summary": "Designed and fabricated a three-nozzle cap with a single-inlet fluid-distribution manifold for an automated tissue-washing platform.",
+    "lead": "A custom cap and three-way saline distributor for dynamic washing in an existing preparation device (PD).",
+    "challenge": "Translate a multi-nozzle washing concept into a manufacturable cap that divides saline from one inlet into three nozzles, fits the existing PD threads, and supports the necessary fluid connections.",
+    "work": "Led detailed SolidWorks design of the cap and the three-branch flow-splitting manifold, including nozzle geometry, connection layout, and integration with the existing threaded interface. My PI specified the need for multiple nozzles and their general orientation; I developed the mechanical implementation. I also directed baffle-shape revisions carried out with an undergraduate researcher.",
+    "outcome": "Fabricated the cap and integrated it into the existing PD for automated washing experiments. The integrated dynamic-washing approach reduced washing time from approximately 45 to 12 minutes. This is a system-level result, not an isolated comparison between individual connector revisions.",
     "tags": [
       "SolidWorks",
-      "Fluid routing",
-      "Design iteration",
-      "Resin printing",
-      "System-level testing"
+      "Fluid distribution",
+      "Manifold design",
+      "Resin prototyping",
+      "System testing"
     ],
     "decisions": [
       [
-        "Remove a restrictive adapter",
-        "Replaced the original luer-ended connection and separate luer-to-barb fitting with a direct barb."
+        "One inlet to three nozzles",
+        "Designed the three-way internal manifold that divides incoming saline from a single inlet into three nozzle flow paths within the available cap footprint."
       ],
       [
-        "Separate processing route",
-        "Added an independent barbed pathway for mechanically processed adipose tissue."
+        "Cap and nozzle integration",
+        "Developed detailed nozzle geometry, barb/port connections, and their arrangement while preserving compatibility with the original threaded preparation-device interface."
       ],
       [
-        "Modify existing geometry",
-        "Rounded spiral baffles and shortened their extent to the upper 60% of the existing cylindrical body."
+        "Build and test",
+        "Produced a transparent prototype, assembled it with the original PD body, and tested the integrated hardware as part of the dynamic-washing platform."
+      ],
+      [
+        "Directed baffle revisions",
+        "Provided engineering direction for changes to the existing internal spiral baffles, collaborating with an undergraduate researcher who implemented the revisions."
+      ],
+      [
+        "Minor connection iteration",
+        "Revised a connection to avoid a restrictive luer-to-barb adapter and related clogging concerns; this was one design refinement, not the central achievement."
       ]
     ],
-    "comparison": [
-      {
-        "title": "Earlier concept",
-        "src": "PD_Cap_Early_Prototype.png",
-        "label": "Resin prototype with original luer-ended connection",
-        "body": "Required an adapter that reduced the effective opening and was associated with air-vent clogging."
-      },
-      {
-        "title": "Revised cap CAD",
-        "src": "PD_Cap_Iso_View.png",
-        "label": "Revised SolidWorks exterior model",
-        "body": "Uses a direct barb connection, plus a separate barbed fluid path for mechanical processing."
-      }
-    ],
-    "comparisonNote": "These views show an earlier printed configuration and later CAD, not paired experimental conditions. The approximately 45-to-12-minute result comes from automated system-level dynamic-washing tests, not a direct A/B comparison of these two images.",
-    "attribution": "Attribution and scope: I conceived and designed this cap and modified the spiral baffles. The original preparation-device cylindrical body was designed by others. The approximately 45-to-12-minute wash-time reduction refers to the integrated dynamic-washing platform; it is not represented as an isolated performance effect of the direct-barb connection or any single cap revision.",
+    "attribution": "Design ownership: The original PD cylindrical body and initial threaded-cap interface were developed by others. The multi-nozzle requirement and general orientation came from my PI. I led the cap redesign, nozzle integration, and single-inlet/three-branch manifold design; baffle-shape changes were developed with an undergraduate collaborator under my direction. The 45-to-12-minute improvement reflects system-level testing. The final gallery image is the published original PD, included as reference with a preserved 1 cm scale bar (Zalazar et al., Bioengineering 2025, Fig. 2B, CC BY 4.0).",
     "gallery": [
       {
+        "src": "PD_Assembly_Transparent_Prototype.jpg",
+        "alt": "Transparent physical preparation device with newly fabricated cap and three-way branching inlet manifold installed",
+        "caption": "Integrated physical prototype: the redesigned cap and branching nozzle connections installed on the original PD body. I designed the cap/manifold hardware, not the inherited cylindrical PD."
+      },
+      {
         "src": "PD_Cap_Iso_View.png",
-        "alt": "Revised PD cap CAD angled isometric view showing external ports and threads",
-        "caption": "Revised cap exterior CAD, including barbed ports, curved channels, and the threaded connection."
+        "alt": "SolidWorks CAD isometric view of custom multi-nozzle preparation-device cap",
+        "caption": "SolidWorks assembly of the cap and its fluidic connections, showing how multiple ports fit within the existing PD interface."
+      },
+      {
+        "src": "PD_Cap_Physical_Top_View.jpg",
+        "alt": "Top view of transparent printed cap showing the three-way fluid-distribution manifold and connected ports",
+        "caption": "Top view of fabricated cap: the branching geometry distributes saline from a single inlet toward three nozzle paths."
+      },
+      {
+        "src": "PD_Cap_Physical_Underside_View.jpg",
+        "alt": "Underside view of clear printed cap showing its nozzle openings and circular fit geometry",
+        "caption": "Underside of the printed cap, showing the openings and layout that interface with the PD interior."
       },
       {
         "src": "PD_Cap_Cross_Section.png",
-        "alt": "Cross-section of revised PD cap showing internal passages",
-        "caption": "Cross-section showing internal passage geometry and threaded connection. The light blue-gray region is cut solid material, not fluid."
+        "alt": "Cross-sectional SolidWorks drawing of the cap internal flow pathways",
+        "caption": "CAD section used to communicate the internal passages and mechanical interface. Shaded section material represents solid polymer, not fluid."
       },
       {
-        "src": "PD_Cap_Early_Prototype.png",
-        "alt": "Earlier physical resin prototype with original luer-ended connection",
-        "caption": "Early resin print representing a prior configuration, before the direct-barb redesign."
-      },
-      {
-        "src": "PD_Lab_Prototype.png",
-        "alt": "Prepared device laboratory assembly with cap, tubing, and fixture",
-        "caption": "Laboratory device setup for context; the photograph is not a revision-matched view of the current CAD."
+        "src": "PD_Original_Published_Fig2B.jpg",
+        "alt": "Original cylindrical preparation device with spiral baffles, before the custom cap project, with 1 centimeter black scale bar",
+        "caption": "Original preparation device (designed by others), included for design context. Panel B from Zalazar et al., Bioengineering (2025), Figure 2; the 1 cm scale bar is preserved.",
+        "source": "https://doi.org/10.3390/bioengineering12090918",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
       }
     ]
   },
@@ -611,6 +619,19 @@
       mainImage.alt = slide.alt; mainImage.src = slide.src;
       document.getElementById("full-image").href = slide.src;
       document.getElementById('gallery-caption').textContent = slide.caption;
+      const imageSource = document.getElementById('gallery-source');
+      imageSource.replaceChildren(); imageSource.hidden = !slide.source;
+      if (slide.source) {
+        const citation = element('a', '', 'Original published figure ↗');
+        citation.href = slide.source; citation.target = '_blank'; citation.rel = 'noopener noreferrer';
+        imageSource.append(citation);
+        if (slide.license) {
+          imageSource.append(document.createTextNode(' · '));
+          const license = element('a', '', 'CC BY 4.0 license ↗');
+          license.href = slide.license; license.target = '_blank'; license.rel = 'noopener noreferrer';
+          imageSource.append(license);
+        }
+      }
       document.getElementById('gallery-counter').textContent = `${position + 1} / ${slides.length}`;
       previous.disabled = next.disabled = slides.length < 2;
       [...thumbStrip.children].forEach((button, i) => button.setAttribute('aria-current', String(i === position)));
